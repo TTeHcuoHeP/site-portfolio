@@ -1,0 +1,3 @@
+export default function Identity() {
+  return <section id="about" className="section"><div className="shell grid gap-12 md:grid-cols-2"><div className="aspect-[4/3] bg-[var(--paper-deep)] p-6"><div className="h-full border border-black/20 bg-[radial-gradient(circle_at_50%_30%,#959595,#e0e0e0_48%)] grayscale" /></div><div className="self-center"><p className="eyebrow">About me</p><h2 className="title mt-4">From <span className="font-light">chaos</span> to clarity.<br />From idea to identity.</h2><p className="copy mt-8">I connect strategy, imagery, typography, and systems into work that feels simple because the thinking behind it is not.</p></div></div></section>;
+}

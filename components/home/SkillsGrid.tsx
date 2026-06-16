@@ -1,0 +1,4 @@
+const skills = ["Creative vision & ideation", "Strategic thinking", "Team leadership & collaboration", "Brand development & art direction", "Ownership & accountability"];
+export default function SkillsGrid() {
+  return <section className="pb-24"><div className="shell grid md:grid-cols-6">{skills.map((skill,i) => <article key={skill} className={`min-h-56 border border-black/15 p-5 ${i === 1 || i === 3 ? "bg-[var(--graphite)] text-white" : "bg-[var(--paper-deep)]"} ${i < 3 ? "md:col-span-2" : "md:col-span-3"}`}><span className="text-3xl">0{i + 1}.</span><h2 className="mt-8 max-w-xs text-2xl uppercase leading-none">{skill}</h2><p className="mt-5 max-w-xs text-xs leading-relaxed opacity-60">A clear framework for turning ambitious ideas into useful, memorable work.</p></article>)}</div></section>;
+}

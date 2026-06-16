@@ -1,0 +1,4 @@
+import type { Project } from "@/data/projects";
+export default function ProjectContent({ project }: { project: Project }) {
+  return <div className="section"><div className="shell"><div className="grid gap-10 md:grid-cols-3"><div><p className="eyebrow">Role</p><p className="mt-4 text-2xl uppercase">{project.role}</p></div><div><p className="eyebrow">Challenge</p><p className="copy mt-4">{project.challenge}</p></div><div><p className="eyebrow">Solution</p><p className="copy mt-4">{project.solution}</p></div></div><div className="mt-24 grid gap-4 md:grid-cols-2">{project.gallery.map((frame,i) => <div key={frame} className={`placeholder-art grid min-h-[420px] place-items-center text-xs uppercase tracking-widest text-white/50 ${i === 0 ? "md:col-span-2" : ""}`}>{frame}</div>)}</div></div></div>;
+}

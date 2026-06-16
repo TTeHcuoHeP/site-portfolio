@@ -1,0 +1,250 @@
+.projects-scroll-section,
+.projects-scroll-slider {
+  position: relative;
+  z-index: 6;
+  isolation: isolate;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #242424;
+  color: #ededed;
+}
+
+.projects-sticky,
+.projects-scroll-stack {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #242424;
+}
+
+.project-slide,
+.projects-scroll-slide {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #242424;
+  isolation: isolate;
+}
+
+.projects-scroll-card-gradient {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(36, 36, 36, 0.76), rgba(36, 36, 36, 0.42) 48%, rgba(36, 36, 36, 0.2)),
+    var(--project-card-gradient);
+  background-position: center;
+  background-size: cover;
+  pointer-events: none;
+}
+
+.pin-spacer:has(> .projects-scroll-section) {
+  position: relative;
+  z-index: 6;
+  isolation: isolate;
+  background: #242424;
+}
+
+.projects-scroll-counter {
+  position: absolute;
+  z-index: 4;
+  top: 20.5%;
+  left: 2.4%;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: clamp(37px, 3.2vw, 54px);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.projects-scroll-counter i {
+  font-style: normal;
+  font-weight: 200;
+}
+
+.projects-scroll-counter small {
+  font-size: .54em;
+  font-weight: 300;
+}
+
+.projects-scroll-counter::after {
+  position: absolute;
+  top: calc(100% + 13px);
+  left: 1px;
+  width: 1px;
+  height: min(29vh, 295px);
+  background: rgba(237,237,237,.4);
+  content: "";
+}
+
+.projects-scroll-copy {
+  position: absolute;
+  z-index: 4;
+  top: 12.5%;
+  left: 12.6%;
+  width: min(27vw, 440px);
+}
+
+.projects-scroll-copy h2 {
+  max-width: 390px;
+  font-size: clamp(62px, 5.1vw, 86px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+
+.projects-scroll-challenge {
+  margin-top: clamp(52px, 7vh, 76px);
+}
+
+.projects-scroll-role {
+  margin-top: clamp(28px, 4vh, 42px);
+}
+
+.projects-scroll-copy h3 {
+  font-size: clamp(17px, 1.25vw, 22px);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.projects-scroll-copy p {
+  margin-top: 7px;
+  color: rgba(237,237,237,.72);
+  font-size: clamp(14px, 1.08vw, 18px);
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+.projects-scroll-tags {
+  position: absolute;
+  z-index: 4;
+  top: 4.8%;
+  right: 4.2%;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projects-scroll-tags li {
+  min-width: 148px;
+  padding: 10px 18px;
+  border: 1px solid rgba(237,237,237,.55);
+  border-radius: 999px;
+  color: rgba(237,237,237,.86);
+  font-size: clamp(12px, .95vw, 16px);
+  font-weight: 300;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.projects-scroll-image {
+  position: absolute;
+  z-index: 2;
+  top: 8%;
+  right: -40%;
+  bottom: -18%;
+  width: 95%;
+}
+
+.projects-scroll-image-file {
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+.projects-scroll-button {
+  display: flex;
+  width: 228px;
+  min-height: 74px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: clamp(34px, 5vh, 54px);
+  padding: 10px 20px 10px 44px;
+  border-radius: 999px;
+  background: #ededed;
+  color: #242424;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.15;
+  text-transform: uppercase;
+  transition: background-color 280ms ease, transform 280ms ease;
+}
+
+.projects-scroll-button i {
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.projects-scroll-button:hover,
+.projects-scroll-button:focus-visible {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.projects-scroll-button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 5px;
+}
+
+.projects-scroll-indicator {
+  position: absolute;
+  z-index: 4;
+  bottom: 9%;
+  left: 2.4%;
+  display: grid;
+  gap: 14px;
+  color: rgba(237,237,237,.9);
+}
+
+.projects-scroll-indicator span {
+  width: 1px;
+  height: min(12vh, 122px);
+  background: rgba(237,237,237,.4);
+}
+
+.projects-scroll-indicator small {
+  font-size: clamp(17px, 1.5vw, 25px);
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  .projects-scroll-copy { left: 9%; width: 36vw; }
+  .projects-scroll-counter { left: 2%; }
+  .projects-scroll-image { right: -5%; width: 62%; }
+  .projects-scroll-tags { right: 2%; gap: 10px; }
+  .projects-scroll-tags li { min-width: auto; padding-inline: 14px; }
+}
+
+@media (max-width: 760px) {
+  .projects-scroll-section, .projects-scroll-slider { width: 100%; height: auto; overflow: visible; }
+  .projects-sticky, .projects-scroll-stack { width: 100%; height: auto; overflow: visible; }
+  .project-slide, .projects-scroll-slide { position: relative; inset: auto; width: 100%; height: auto; transform: none; }
+  .projects-scroll-slide { min-height: 100svh; padding: 92px 20px 48px; }
+  .projects-scroll-counter, .projects-scroll-copy, .projects-scroll-tags, .projects-scroll-image, .projects-scroll-indicator { position: relative; inset: auto; }
+  .projects-scroll-counter::after, .projects-scroll-indicator { display: none; }
+  .projects-scroll-copy { width: 100%; }
+  .projects-scroll-copy h2 { font-size: clamp(52px, 16vw, 76px); }
+  .projects-scroll-challenge { margin-top: 38px; }
+  .projects-scroll-tags { flex-wrap: wrap; margin-top: 34px; }
+  .projects-scroll-image { width: 100%; height: 48svh; margin-top: 34px; }
+  .projects-scroll-button { width: 190px; min-height: 64px; padding-left: 32px; font-size: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-scroll-section, .projects-scroll-slider { width: 100%; height: auto; overflow: visible; }
+  .projects-sticky, .projects-scroll-stack { width: 100%; height: auto; overflow: visible; }
+  .project-slide, .projects-scroll-slide { position: relative; inset: auto; width: 100%; height: auto; min-height: 100svh; transform: none; }
+  .projects-scroll-slide [data-project-reveal] { opacity: 1 !important; visibility: visible !important; filter: none !important; transform: none !important; }
+}

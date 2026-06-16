@@ -1,0 +1,298 @@
+body.is-preloading {
+  overflow: hidden;
+}
+
+.site-preloader,
+.site-preloader * {
+  cursor: auto !important;
+}
+
+.site-preloader {
+  position: fixed;
+  z-index: 12000;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(237, 237, 237, 0.055), transparent 35%),
+    #242424;
+  color: #ededed;
+  font-family: "Oswald", sans-serif;
+  isolation: isolate;
+}
+
+.site-preloader::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(237, 237, 237, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(237, 237, 237, 0.03) 1px, transparent 1px);
+  background-size: 50% 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.site-preloader::after {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(237, 237, 237, 0.18) 0.7px, transparent 0.7px);
+  background-size: 5px 5px;
+  content: "";
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.preloader-scene {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 2vw, 42px);
+}
+
+.preloader-timecode,
+.preloader-status,
+.preloader-version {
+  position: absolute;
+  color: rgba(237, 237, 237, 0.64);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(11px, 0.9vw, 16px);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.preloader-timecode {
+  top: clamp(20px, 2vw, 38px);
+  left: clamp(20px, 2vw, 42px);
+}
+
+.preloader-status {
+  bottom: clamp(28px, 3vw, 54px);
+  left: clamp(20px, 2vw, 42px);
+}
+
+.preloader-version {
+  right: clamp(20px, 2vw, 42px);
+  bottom: clamp(28px, 3vw, 54px);
+}
+
+.preloader-system-title {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(18px, 1.35vw, 28px);
+  font-weight: 300;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.preloader-system-cursor {
+  position: absolute;
+  top: calc(50% + 34px);
+  width: 20px;
+  height: 2px;
+  background: #f6a400;
+}
+
+.preloader-log {
+  display: grid;
+  min-width: min(82vw, 520px);
+  gap: 22px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(14px, 1.05vw, 19px);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.preloader-log-row {
+  display: grid;
+  grid-template-columns: 1fr 44px;
+  gap: 36px;
+}
+
+.preloader-log-ok {
+  color: #f6a400;
+}
+
+.preloader-statement {
+  position: relative;
+  max-width: min(85vw, 1120px);
+  margin: 0;
+  font-size: clamp(52px, 6.2vw, 118px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-transform: none;
+}
+
+.preloader-statement span {
+  display: block;
+  overflow: hidden;
+  text-shadow: 0 0 10px rgba(237, 237, 237, 0.15);
+}
+
+.preloader-statement-mark {
+  position: absolute;
+  top: calc(50% + clamp(64px, 7vw, 120px));
+  left: 8vw;
+  width: 180px;
+  height: 1px;
+  background: #ededed;
+  transform-origin: left;
+}
+
+.preloader-glitch {
+  position: absolute;
+  width: 54px;
+  height: 2px;
+  background: #ededed;
+}
+
+.preloader-glitch-a {
+  top: 40%;
+  right: 12%;
+}
+
+.preloader-glitch-b {
+  top: 54%;
+  left: 7%;
+}
+
+.preloader-profile-badge {
+  width: min(70vw, 360px);
+  padding: 28px;
+  border: 1px solid rgba(237, 237, 237, 0.34);
+  border-radius: 18px;
+  background: linear-gradient(150deg, rgba(48, 48, 48, 0.96), rgba(24, 24, 24, 0.96));
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.25);
+}
+
+.preloader-profile-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 34px;
+}
+
+.preloader-profile-top span {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #ededed;
+  border-radius: 50%;
+}
+
+.preloader-profile-top em {
+  color: rgba(237, 237, 237, 0.7);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-style: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.preloader-profile-status {
+  margin: 0 0 18px;
+  color: #f6a400;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.preloader-profile-badge h3 {
+  margin: 0;
+  font-size: clamp(34px, 3vw, 52px);
+  font-weight: 700;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.preloader-profile-badge > p:not(.preloader-profile-status) {
+  margin: 16px 0 28px;
+  font-size: 19px;
+  font-weight: 300;
+}
+
+.preloader-profile-badge i {
+  display: block;
+  height: 34px;
+  border-top: 1px solid rgba(237, 237, 237, 0.38);
+  padding-top: 22px;
+  background: repeating-linear-gradient(90deg, #ededed 0 1px, transparent 1px 3px, #ededed 3px 5px, transparent 5px 8px);
+  background-clip: content-box;
+}
+
+.preloader-doodle {
+  position: absolute;
+  color: #ededed;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+.preloader-doodle strong {
+  display: inline-block;
+  margin-bottom: 20px;
+  border: 1px solid rgba(237, 237, 237, 0.72);
+  border-radius: 50%;
+  padding: 8px 18px;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-14deg);
+}
+
+.preloader-doodle-left {
+  top: 31%;
+  left: 17%;
+}
+
+.preloader-doodle-right {
+  top: 31%;
+  right: 14%;
+}
+
+.preloader-launch-ring {
+  display: grid;
+  width: min(58vw, 310px);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid #f6a400;
+  border-radius: 50%;
+  color: #f6a400;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.55;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .preloader-log {
+    min-width: calc(100vw - 44px);
+  }
+
+  .preloader-statement {
+    font-size: clamp(46px, 14vw, 72px);
+  }
+
+  .preloader-doodle {
+    display: none;
+  }
+
+  .preloader-profile-badge {
+    width: min(82vw, 330px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-preloader *,
+  .site-preloader *::before,
+  .site-preloader *::after {
+    animation: none !important;
+    transition-duration: 0.001ms !important;
+  }
+}

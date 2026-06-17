@@ -2,12 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { usePathname } from "next/navigation";
 
 export default function SitePreloader() {
   const rootRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
   const [active, setActive] = useState(true);
 
   useEffect(() => {
+    if (pathname !== "/") return;
     const root = rootRef.current;
     if (!root) return;
 
@@ -73,9 +76,9 @@ export default function SitePreloader() {
       context.revert();
       document.body.classList.remove("is-preloading");
     };
-  }, []);
+  }, [pathname]);
 
-  if (!active) return null;
+  if (!active || pathname !== "/") return null;
 
   return (
     <div ref={rootRef} className="site-preloader" role="status" aria-live="polite" aria-label="Loading portfolio">

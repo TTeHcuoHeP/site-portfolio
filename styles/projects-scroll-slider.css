@@ -144,15 +144,28 @@
   line-height: 1;
   text-align: center;
   text-transform: uppercase;
+  transition:
+    background-color 320ms ease,
+    border-color 320ms ease,
+    color 320ms ease,
+    transform 360ms cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
+}
+
+.projects-scroll-tags li:hover {
+  border-color: #d9d9d9;
+  background: #d9d9d9;
+  color: #242424;
+  transform: scale(1.06);
 }
 
 .projects-scroll-image {
   position: absolute;
   z-index: 2;
   top: 8%;
-  right: -40%;
-  bottom: -18%;
-  width: 95%;
+  right: -1%;
+  bottom: -10%;
+  width: 55%;
 }
 
 .projects-scroll-image-file {
@@ -175,7 +188,11 @@
   font-weight: 500;
   line-height: 1.15;
   text-transform: uppercase;
-  transition: background-color 280ms ease, transform 280ms ease;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    transform 360ms cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
 }
 
 .projects-scroll-button i {
@@ -189,7 +206,7 @@
 .projects-scroll-button:hover,
 .projects-scroll-button:focus-visible {
   background: #fff;
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.04);
 }
 
 .projects-scroll-button:focus-visible {

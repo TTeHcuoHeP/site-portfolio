@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cleanupScrollTriggers } from "@/lib/cleanup-scroll-triggers";
 
 export default function Header() {
   const pathname = usePathname();
+  const darkHeader = pathname.startsWith("/projects/") || pathname.startsWith("/work/");
   const items = [
     { label: "Home", href: "/", active: pathname === "/" },
     { label: "Work", href: "/projects", active: pathname.startsWith("/projects") || pathname.startsWith("/work") },
@@ -13,7 +15,10 @@ export default function Header() {
   ];
 
   return (
-    <header className="reference-header absolute inset-x-0 top-0 z-50 text-[var(--graphite)]">
+    <header
+      className={`reference-header absolute inset-x-0 top-0 z-50 text-[var(--graphite)]${darkHeader ? " is-dark-page" : ""}`}
+      suppressHydrationWarning
+    >
       <Link href="/" className="reference-logo" aria-label="Alsim Mamedov home">AM</Link>
       <nav aria-label="Primary navigation" className="reference-nav">
         {items.map((item) => (
@@ -22,6 +27,9 @@ export default function Header() {
             href={item.href}
             className={`nav-item${item.active ? " is-active" : ""}`}
             aria-current={item.active ? "page" : undefined}
+            onClick={() => {
+              if (!item.active) cleanupScrollTriggers();
+            }}
           >
             <span className="nav-bracket" aria-hidden>[</span>
             <span>{item.label}</span>

@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import type { Project } from "@/data/projects";
+import { cleanupScrollTriggers } from "@/lib/cleanup-scroll-triggers";
 
 const formatCounter = (value: number) => String(value).padStart(2, "0");
 
@@ -42,7 +45,7 @@ export default function ProjectSlide({
           <p data-project-reveal data-reveal-order="6">{project.role}</p>
         </div>
 
-        <Link href={`/projects/${project.slug}`} className="projects-scroll-button" data-project-reveal data-reveal-order="7">
+        <Link href={`/projects/${project.slug}`} className="projects-scroll-button" data-project-reveal data-reveal-order="7" onClick={cleanupScrollTriggers}>
           <span>View<br />Project</span>
           <i aria-hidden />
         </Link>

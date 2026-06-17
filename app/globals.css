@@ -40,14 +40,31 @@ body {
 .reference-header { height: 110px; }
 .reference-logo { position: absolute; top: 39px; left: 2.5vw; font-size: 28px; font-weight: 700; line-height: 1; letter-spacing: -.04em; transition: color 280ms ease, opacity 280ms ease, transform 280ms ease; }
 .reference-nav { position: absolute; top: 50px; right: 3.85vw; display: flex; align-items: center; gap: clamp(38px, 4.5vw, 66px); font-size: 18px; line-height: 1; }
-.reference-nav .nav-item { display: inline-flex; gap: .22em; align-items: center; color: rgba(36,36,36,.82); transition: color 280ms ease, opacity 280ms ease, transform 280ms ease; }
+.reference-nav .nav-item { position: relative; display: inline-flex; gap: .22em; align-items: center; color: rgba(36,36,36,.82); transition: color 280ms ease, opacity 280ms ease, transform 280ms ease; }
+.reference-nav .nav-item::after { position: absolute; right: 0; bottom: -5px; left: 0; height: 1px; background: currentColor; content: ""; transform: scaleX(0); transform-origin: right; transition: transform 280ms ease; }
 .reference-nav .nav-bracket { opacity: 0; transition: opacity 280ms ease; }
 .reference-nav .is-active { color: var(--graphite); }
 .reference-nav .is-active .nav-bracket { opacity: 1; }
 .reference-nav .cv-link { position: relative; color: #f2a900; font-weight: 700; transition: color 280ms ease, transform 280ms ease; }
 .reference-nav .cv-link::after { position: absolute; right: 0; bottom: -5px; left: 0; height: 1px; background: currentColor; content: ""; transform: scaleX(0); transform-origin: right; transition: transform 280ms ease; }
+.reference-header.is-dark-page .reference-logo,
+.reference-header.is-dark-page .reference-nav .nav-item,
+body:has(.project-detail-hero) .reference-header .reference-logo,
+body:has(.project-detail-hero) .reference-header .reference-nav .nav-item { color: rgba(237,237,237,.86); }
+.reference-header.is-dark-page .reference-nav .is-active,
+body:has(.project-detail-hero) .reference-header .reference-nav .is-active { color: #ededed; }
 .reference-logo:hover, .reference-logo:focus-visible, .reference-nav .nav-item:hover, .reference-nav .nav-item:focus-visible { color: #181818; transform: translateY(-2px); }
+ .reference-header.is-dark-page .reference-logo:hover,
+ .reference-header.is-dark-page .reference-logo:focus-visible,
+ .reference-header.is-dark-page .reference-nav .nav-item:hover,
+ .reference-header.is-dark-page .reference-nav .nav-item:focus-visible,
+body:has(.project-detail-hero) .reference-header .reference-logo:hover,
+body:has(.project-detail-hero) .reference-header .reference-logo:focus-visible,
+body:has(.project-detail-hero) .reference-header .reference-nav .nav-item:hover,
+body:has(.project-detail-hero) .reference-header .reference-nav .nav-item:focus-visible { color: #ededed; }
 .reference-nav .nav-item:not(.is-active):hover, .reference-nav .nav-item:not(.is-active):focus-visible { opacity: 1; }
+.reference-nav .nav-item:hover::after,
+.reference-nav .nav-item:focus-visible::after { transform: scaleX(1); transform-origin: left; }
 .reference-nav .cv-link:hover, .reference-nav .cv-link:focus-visible { color: #d89500; transform: translateY(-2px) scale(1.015); }
 .reference-nav .cv-link:hover::after, .reference-nav .cv-link:focus-visible::after { transform: scaleX(1); transform-origin: left; }
 .reference-logo:focus-visible, .reference-nav a:focus-visible, .social-link:focus-visible { outline: 1px solid var(--graphite); outline-offset: 5px; }

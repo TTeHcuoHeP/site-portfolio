@@ -146,7 +146,7 @@ export default function ScrollSequence() {
       gsap.killTweensOf(playhead);
       ScrollTrigger.getAll()
         .filter((trigger) => trigger.trigger === section)
-        .forEach((trigger) => trigger.kill());
+        .forEach((trigger) => trigger.kill(true));
     };
   }, []);
 

@@ -8,25 +8,25 @@ const services = [
   {
     id: "creative",
     title: "Creative Direction",
-    copy: "You can get a workspace of the highest quality at an affordable price and still enjoy the facilities that are only here.",
+    copy: "Turning ideas into clear concepts, systems, and experiences that people remember.",
     icon: "/images/icons/Creative Direction.png",
   },
   {
     id: "digital",
     title: "Digital Campaigns",
-    copy: "We provide many unique work space choices so that you can choose the workspace to your liking.",
+    copy: "Building campaigns that connect strategy, creativity, and measurable results.",
     icon: "/images/icons/Digital Campaigns.png",
   },
   {
     id: "visual",
     title: "Visual Systems",
-    copy: "You can get a workspace of the highest quality at an affordable price and still enjoy the facilities that are only here.",
+    copy: "Creating scalable visual languages that keep brands consistent across every touchpoint.",
     icon: "/images/icons/Visual Systems.png",
   },
   {
     id: "speaking",
     title: "Public Speaking",
-    copy: "We provide many unique work space choices so that you can choose the workspace to your liking.",
+    copy: "Sharing ideas, insights, and experience through presentations, workshops, and industry events.",
     icon: "/images/icons/Public Speaking.png",
   },
 ];

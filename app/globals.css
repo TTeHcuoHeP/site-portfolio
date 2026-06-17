@@ -195,7 +195,7 @@ body:has(.project-detail-hero) .reference-header .reference-nav .nav-item:focus-
 .expertise-headline { position: absolute; top: 11.8%; left: 2.45%; font-size: clamp(58px, 5.65vw, 82px); font-weight: 300; line-height: 1.2; letter-spacing: -.04em; }
 .expertise-headline span { display: block; }
 .expertise-headline strong { font-weight: 700; }
-.expertise-arrow { position: absolute; top: 11.2%; right: 17.9%; width: 250px; height: auto; }
+.expertise-arrow { position: absolute; top: 11.2%; right: 17.9%; width: 250px; height: auto; transform-origin: 50% 50%; will-change: transform; }
 .expertise-timeline { position: absolute; top: 67.8%; right: 0; left: 0; border-top: 1px dashed rgba(36,36,36,.9); }
 .expertise-service { position: absolute; z-index: 2; width: 310px; outline: none; }
 .expertise-service-copy { transition: transform 560ms cubic-bezier(.2,1.55,.45,1), color 300ms ease; }

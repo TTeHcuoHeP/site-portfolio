@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 
 const services = [
   {
@@ -31,11 +32,47 @@ const services = [
 ];
 
 export default function Expertise() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const arrowRef = useRef<HTMLImageElement>(null);
   const [activeService, setActiveService] = useState<string | null>(null);
   const [missingIcons, setMissingIcons] = useState<string[]>([]);
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    const arrow = arrowRef.current;
+    if (!section || !arrow) return;
+
+    const precisePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!precisePointer || reducedMotion) return;
+
+    const rotateTo = gsap.quickTo(arrow, "rotation", {
+      duration: 0.45,
+      ease: "power3.out",
+    });
+
+    const handlePointerMove = (event: PointerEvent) => {
+      const bounds = arrow.getBoundingClientRect();
+      const centerX = bounds.left + bounds.width / 2;
+      const centerY = bounds.top + bounds.height / 2;
+      const angle = Math.atan2(event.clientY - centerY, event.clientX - centerX) * (180 / Math.PI);
+      rotateTo(angle - 150);
+    };
+
+    const resetArrow = () => rotateTo(0);
+
+    section.addEventListener("pointermove", handlePointerMove, { passive: true });
+    section.addEventListener("pointerleave", resetArrow);
+
+    return () => {
+      section.removeEventListener("pointermove", handlePointerMove);
+      section.removeEventListener("pointerleave", resetArrow);
+      gsap.killTweensOf(arrow);
+    };
+  }, []);
+
   return (
-    <section className="expertise-section" aria-labelledby="expertise-heading">
+    <section ref={sectionRef} className="expertise-section" aria-labelledby="expertise-heading">
       <h2 id="expertise-heading" className="expertise-headline">
         <span><strong>Creative</strong> Expertise</span>
         <span>Across <strong>Strategy,</strong></span>
@@ -43,6 +80,7 @@ export default function Expertise() {
       </h2>
 
       <Image
+        ref={arrowRef}
         src="/images/icons/orange-arrow.svg"
         alt=""
         width={246}

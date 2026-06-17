@@ -5,6 +5,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 
+const CV_URL = "https://7b49630d-9430-45f4-9b53-012f49a3475c.usrfiles.com/ugd/7b4963_31089efd85ca486ab9b7737f052f0559.pdf";
+
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
 
@@ -80,7 +82,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <a className="footer-cv-link" href="/cv.pdf" download>
+          <a className="footer-cv-link" href={CV_URL} target="_blank" rel="noopener noreferrer">
             <span>Download CV</span>
             <i aria-hidden>↗</i>
           </a>

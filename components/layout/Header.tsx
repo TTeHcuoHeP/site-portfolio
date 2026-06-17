@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cleanupScrollTriggers } from "@/lib/cleanup-scroll-triggers";
 
+const CV_URL = "https://7b49630d-9430-45f4-9b53-012f49a3475c.usrfiles.com/ugd/7b4963_31089efd85ca486ab9b7737f052f0559.pdf";
+
 export default function Header() {
   const pathname = usePathname();
   const darkHeader = pathname.startsWith("/projects/") || pathname.startsWith("/work/");
@@ -36,7 +38,7 @@ export default function Header() {
             <span className="nav-bracket" aria-hidden>]</span>
           </Link>
         ))}
-        <a className="cv-link" href="/cv/alsim-mamedov-cv.pdf" download>Download CV</a>
+        <a className="cv-link" href={CV_URL} target="_blank" rel="noopener noreferrer">Download CV</a>
       </nav>
     </header>
   );

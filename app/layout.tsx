@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Oswald } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/layout/Header";
 import HeroCursor from "@/components/home/HeroCursor";
 import SitePreloader from "@/components/preloader/SitePreloader";
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <HeroCursor />
         <Header />
         <main>{children}</main>
+        <Analytics />
       </body>
     </html>
   );

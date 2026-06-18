@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { externalLinkProps, socialLinks } from "@/lib/social-links";
 
 const CV_URL = "https://7b49630d-9430-45f4-9b53-012f49a3475c.usrfiles.com/ugd/7b4963_31089efd85ca486ab9b7737f052f0559.pdf";
 
@@ -88,9 +89,9 @@ export default function Footer() {
           </a>
 
           <nav className="footer-socials" aria-label="Social links">
-            <a href="#" aria-label="Instagram">Instagram</a>
-            <a href="#" aria-label="LinkedIn">LinkedIn</a>
-            <a href="#" aria-label="Telegram">Telegram</a>
+            <a href={socialLinks.instagram} aria-label="Instagram" {...externalLinkProps}>Instagram</a>
+            <a href={socialLinks.linkedin} aria-label="LinkedIn" {...externalLinkProps}>LinkedIn</a>
+            <a href={socialLinks.telegram} aria-label="Telegram" {...externalLinkProps}>Telegram</a>
           </nav>
         </aside>
       </div>

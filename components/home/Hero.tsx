@@ -3,14 +3,15 @@
 import Image from "next/image";
 import { PointerEvent as ReactPointerEvent, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { externalLinkProps, socialLinks } from "@/lib/social-links";
 import HeroSketchLayers from "./HeroSketchLayers";
 
 function SocialRail() {
   return (
     <aside className="social-rail" aria-label="Social links">
-      <a href="#" aria-label="LinkedIn" className="social-link social-linkedin">in</a>
-      <a href="#" aria-label="Instagram" className="social-link social-instagram" />
-      <a href="#" aria-label="Telegram" className="social-link social-telegram" />
+      <a href={socialLinks.linkedin} aria-label="LinkedIn" className="social-link social-linkedin" {...externalLinkProps}>in</a>
+      <a href={socialLinks.instagram} aria-label="Instagram" className="social-link social-instagram" {...externalLinkProps} />
+      <a href={socialLinks.telegram} aria-label="Telegram" className="social-link social-telegram" {...externalLinkProps} />
       <span className="portfolio-rule" aria-hidden />
       <span className="portfolio-label">Portfolio</span>
     </aside>

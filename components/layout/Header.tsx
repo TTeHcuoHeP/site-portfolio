@@ -21,7 +21,7 @@ export default function Header() {
       className={`reference-header absolute inset-x-0 top-0 z-50 text-[var(--graphite)]${darkHeader ? " is-dark-page" : ""}`}
       suppressHydrationWarning
     >
-      <Link href="/" className="reference-logo" aria-label="Alsim Mamedov home">AM</Link>
+      <Link href="/" className="reference-logo" aria-label="Alsim Mamedov home">[ ISOGRAPH.ME ]</Link>
       <nav aria-label="Primary navigation" className="reference-nav">
         {items.map((item) => (
           <Link

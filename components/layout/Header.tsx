@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cleanupScrollTriggers } from "@/lib/cleanup-scroll-triggers";
 
@@ -9,6 +10,7 @@ const CV_URL = "https://7b49630d-9430-45f4-9b53-012f49a3475c.usrfiles.com/ugd/7b
 export default function Header() {
   const pathname = usePathname();
   const darkHeader = pathname.startsWith("/projects/") || pathname.startsWith("/work/");
+  const logoSrc = darkHeader ? "/hero/logo-light.svg" : "/hero/logo-dark.svg";
   const items = [
     { label: "Home", href: "/", active: pathname === "/" },
     { label: "Work", href: "/projects", active: pathname.startsWith("/projects") || pathname.startsWith("/work") },
@@ -21,7 +23,16 @@ export default function Header() {
       className={`reference-header absolute inset-x-0 top-0 z-50 text-[var(--graphite)]${darkHeader ? " is-dark-page" : ""}`}
       suppressHydrationWarning
     >
-      <Link href="/" className="reference-logo" aria-label="Alsim Mamedov home">[ ISOGRAPH.ME ]</Link>
+      <Link href="/" className="reference-logo" aria-label="Isograph home">
+        <Image
+          src={logoSrc}
+          alt="Isograph"
+          width={190}
+          height={42}
+          priority
+          className="reference-logo-image"
+        />
+      </Link>
       <nav aria-label="Primary navigation" className="reference-nav">
         {items.map((item) => (
           <Link

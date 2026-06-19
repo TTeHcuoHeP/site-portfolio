@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Oswald } from "next/font/google";
+import { Agdasima, Oswald } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/layout/Header";
 import HeroCursor from "@/components/home/HeroCursor";
@@ -17,6 +17,12 @@ const oswald = Oswald({
   variable: "--font-oswald",
 });
 
+const agdasima = Agdasima({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-agdasima",
+});
+
 export const metadata: Metadata = {
   title: "Alsim — Creative Direction",
   description: "Creative direction, visual systems, and brand identity.",
@@ -24,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={oswald.variable}>
+    <html lang="en" className={`${oswald.variable} ${agdasima.variable}`}>
       <body>
         <SitePreloader />
         <HeroCursor />

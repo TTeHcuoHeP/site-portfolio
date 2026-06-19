@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { MouseEvent, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 import Link from "next/link";
 import { externalLinkProps, socialLinks } from "@/lib/social-links";
 
@@ -10,6 +11,13 @@ const CV_URL = "https://7b49630d-9430-45f4-9b53-012f49a3475c.usrfiles.com/ugd/7b
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
+
+  const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (window.location.pathname !== "/") return;
+
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     const footer = footerRef.current;
@@ -52,6 +60,9 @@ export default function Footer() {
       <span className="footer-outline" aria-hidden />
 
       <div className="footer-topline">
+        <Link href="/" className="footer-brand-logo" aria-label="Scroll to homepage hero" onClick={handleLogoClick}>
+          <Image src="/hero/logo-light.svg" alt="Isograph" width={220} height={48} priority />
+        </Link>
         <span>Creative Direction / Art Direction</span>
         <span>Available For Selected Collaborations</span>
       </div>

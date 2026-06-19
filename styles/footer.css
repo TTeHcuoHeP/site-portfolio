@@ -53,6 +53,27 @@
   border-bottom-width: 1px;
 }
 
+.footer-brand-logo {
+  display: block;
+  width: clamp(150px, 13vw, 240px);
+  opacity: 0.94;
+  transition:
+    opacity 300ms ease,
+    transform 300ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.footer-brand-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.footer-brand-logo:hover,
+.footer-brand-logo:focus-visible {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
 .footer-main {
   position: relative;
   z-index: 1;
@@ -246,6 +267,10 @@
 
   .footer-topline span:last-child {
     display: none;
+  }
+
+  .footer-brand-logo {
+    width: 142px;
   }
 
   .footer-main {

@@ -170,17 +170,7 @@ body:has(.project-detail-hero) .reference-header .reference-nav .nav-item:focus-
   .hero-note-design { top: 62%; right: 3%; width: 29vw; opacity: .7; }
   .reference-headline { top: 18%; bottom: auto; left: 18px; font-size: clamp(61px, 18vw, 91px); }
   .hero-board-headline { top: 18%; max-width: calc(100% - 36px); font-size: clamp(44px, 13vw, 66px); line-height: 1.08; }
-  .hero-profile-card { top: auto; right: 18px; bottom: 18px; width: min(58vw, 240px); height: auto; max-height: 58svh; padding: 18px; border-radius: 22px; cursor: default; touch-action: auto; }
-  .hero-badge-drag-surface { display: none; }
-  .hero-badge-top { min-height: 35px; }
-  .hero-badge-grip { display: none; }
-  .hero-badge-identity h2 { margin-top: 2px; font-size: 30px; }
-  .hero-badge-identity p { margin-top: 10px; font-size: 12px; }
-  .hero-badge-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; padding-top: 11px; }
-  .hero-badge-stats div { padding: 0; border-bottom: 0; }
-  .hero-badge-stats strong { font-size: 27px; }
-  .hero-badge-stats span { font-size: 8px; }
-  .hero-badge-footer { display: none; }
+  .hero-profile-card { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

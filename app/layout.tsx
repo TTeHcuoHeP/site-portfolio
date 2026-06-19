@@ -26,6 +26,9 @@ const agdasima = Agdasima({
 export const metadata: Metadata = {
   title: "Alsim — Creative Direction",
   description: "Creative direction, visual systems, and brand identity.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

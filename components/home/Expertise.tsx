@@ -81,7 +81,7 @@ export default function Expertise() {
 
       <Image
         ref={arrowRef}
-        src="/images/icons/orange-arrow.svg"
+        src="/images/icons/logo-symbol.svg"
         alt=""
         width={246}
         height={248}

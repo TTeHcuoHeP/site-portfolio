@@ -30,6 +30,7 @@ export default function CareerPath() {
 
   return (
     <section
+      id="career-path"
       className="career-path"
       aria-label="Career path"
     >

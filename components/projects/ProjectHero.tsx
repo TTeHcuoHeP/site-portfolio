@@ -17,11 +17,24 @@ export default function ProjectHero({ project }: { project: Project }) {
             <h1>{project.title}</h1>
             <p>{project.subtitle}</p>
           </div>
-          <dl className="project-detail-facts">
-            <div><dt>Client</dt><dd>{project.client}</dd></div>
-            <div><dt>Role</dt><dd>{project.roleDescription}</dd></div>
-            <div><dt>Location</dt><dd>{project.location}</dd></div>
-          </dl>
+          <aside className="project-detail-aside">
+            <dl className="project-detail-facts">
+              <div><dt>Client</dt><dd>{project.client}</dd></div>
+              <div><dt>Role</dt><dd>{project.roleDescription}</dd></div>
+              <div><dt>Location</dt><dd>{project.location}</dd></div>
+            </dl>
+            {project.projectUrl ? (
+              <a className="project-detail-open" href={project.projectUrl} target="_blank" rel="noopener noreferrer">
+                <span>Open Project</span>
+                <i aria-hidden>↗</i>
+              </a>
+            ) : (
+              <span className="project-detail-open is-disabled" aria-disabled="true">
+                <span>Open Project</span>
+                <i aria-hidden>↗</i>
+              </span>
+            )}
+          </aside>
         </div>
         <div className="project-detail-hero-image">
           <Image src={project.heroImage} alt={`${project.title} hero image`} fill priority sizes="100vw" />

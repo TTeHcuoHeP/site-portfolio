@@ -205,7 +205,7 @@
 
 .projects-scroll-button:hover,
 .projects-scroll-button:focus-visible {
-  background: #fff;
+  background: #959595;
   transform: translateY(-3px) scale(1.04);
 }
 

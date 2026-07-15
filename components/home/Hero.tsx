@@ -174,13 +174,15 @@ export default function Hero() {
       <div className="hero-video-layer" aria-hidden>
         <video
           className="hero-loop-video"
-          src="/hero/hero_looped.mp4"
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
-        />
+          poster="/hero/hero_start.webp"
+          preload="metadata"
+        >
+          <source src="/hero/hero_looped.webm" type="video/webm" />
+        </video>
       </div>
 
       <h1 className="reference-headline hero-board-headline">

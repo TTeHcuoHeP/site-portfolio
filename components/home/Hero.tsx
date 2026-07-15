@@ -4,7 +4,6 @@ import Image from "next/image";
 import { PointerEvent as ReactPointerEvent, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { externalLinkProps, socialLinks } from "@/lib/social-links";
-import HeroSketchLayers from "./HeroSketchLayers";
 
 function SocialRail() {
   return (
@@ -172,7 +171,17 @@ export default function Hero() {
     <section className="hero reference-hero">
       <SocialRail />
 
-      <HeroSketchLayers />
+      <div className="hero-video-layer" aria-hidden>
+        <video
+          className="hero-loop-video"
+          src="/hero/hero_looped.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        />
+      </div>
 
       <h1 className="reference-headline hero-board-headline">
         <span>I turn business</span>

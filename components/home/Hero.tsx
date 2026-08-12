@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { PointerEvent as ReactPointerEvent, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { externalLinkProps, socialLinks } from "@/lib/social-links";
@@ -11,6 +10,7 @@ function SocialRail() {
       <a href={socialLinks.linkedin} aria-label="LinkedIn" className="social-link social-linkedin" {...externalLinkProps}>in</a>
       <a href={socialLinks.instagram} aria-label="Instagram" className="social-link social-instagram" {...externalLinkProps} />
       <a href={socialLinks.telegram} aria-label="Telegram" className="social-link social-telegram" {...externalLinkProps} />
+      <a href={socialLinks.behance} aria-label="Behance" className="social-link social-behance" {...externalLinkProps}>Be</a>
       <span className="portfolio-rule" aria-hidden />
       <span className="portfolio-label">Portfolio</span>
     </aside>
@@ -186,20 +186,9 @@ export default function Hero() {
       </div>
 
       <h1 className="reference-headline hero-board-headline">
-        <span>I turn business</span>
-        <span>problems into</span>
-        <span className="creative-systems-wrap" tabIndex={0}>
-          <strong>creative systems</strong>
-          <Image
-            src="/hero/notes/creative-circle.svg"
-            alt=""
-            fill
-            sizes="48vw"
-            className="creative-systems-circle"
-            draggable={false}
-            unoptimized
-          />
-        </span>
+        <span>Creative</span>
+        <span>Direction</span>
+        <span>For Brands</span>
       </h1>
 
       <HeroProfileCard />

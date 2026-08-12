@@ -103,6 +103,7 @@ export default function Footer() {
             <a href={socialLinks.instagram} aria-label="Instagram" {...externalLinkProps}>Instagram</a>
             <a href={socialLinks.linkedin} aria-label="LinkedIn" {...externalLinkProps}>LinkedIn</a>
             <a href={socialLinks.telegram} aria-label="Telegram" {...externalLinkProps}>Telegram</a>
+            <a href={socialLinks.behance} aria-label="Behance" {...externalLinkProps}>Behance</a>
           </nav>
         </aside>
       </div>

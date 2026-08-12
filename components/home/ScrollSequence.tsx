@@ -129,11 +129,13 @@ export default function ScrollSequence() {
           pin: true,
           scrub: SCRUB_SMOOTHING,
           anticipatePin: 1,
+          refreshPriority: 2,
           invalidateOnRefresh: true,
         },
       });
 
       ScrollTrigger.refresh();
+      window.dispatchEvent(new Event("scroll-sequence-ready"));
     };
 
     setupSequence();

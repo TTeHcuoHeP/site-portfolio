@@ -84,13 +84,13 @@ export default function Footer() {
           <h3>Contact information:</h3>
 
           <div className="footer-contact-links">
-            <a href="mailto:alsim-m@mail.ru">
+            <a href="mailto:isograph.me@gmail.com">
               <span>Email</span>
-              alsim-m@mail.ru
+              isograph.me@gmail.com
             </a>
-            <a href="tel:085210033982">
-              <span>Phone</span>
-              085210033982
+            <a href="https://t.me/whynotdesigner" target="_blank" rel="noopener noreferrer">
+              <span>Telegram</span>
+              @whynotdesigner
             </a>
           </div>
 

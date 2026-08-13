@@ -212,26 +212,41 @@
 .footer-socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 22px;
+  gap: 12px;
   margin-top: 30px;
 }
 
 .footer-socials a {
-  border-bottom: 1px solid transparent;
-  color: rgba(237, 237, 237, 0.65);
-  font-size: 13px;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(237, 237, 237, 0.96);
+  color: #242424;
   transition:
-    border-color 300ms ease,
-    color 300ms ease;
+    background-color 280ms ease,
+    color 280ms ease,
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-socials svg {
+  width: 42%;
+  height: 42%;
+  fill: currentColor;
+}
+
+.footer-socials a:nth-child(2) svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
 }
 
 .footer-socials a:hover,
 .footer-socials a:focus-visible {
-  border-color: #ededed;
-  color: #ededed;
+  background: #f5a623;
+  color: #242424;
+  transform: translateY(-3px) scale(1.05);
 }
 
 .portfolio-footer a:focus-visible {

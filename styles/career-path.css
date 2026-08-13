@@ -41,8 +41,8 @@
   place-items: center;
   border: 1px solid #242424;
   border-radius: 50%;
-  background: transparent;
-  color: #242424;
+  background: #242424;
+  color: #ededed;
   transition:
     background-color 300ms ease,
     color 300ms ease,
@@ -51,8 +51,8 @@
 
 .career-path-control:not(:disabled):hover,
 .career-path-control:not(:disabled):focus-visible {
-  background: #242424;
-  color: #ededed;
+  background: #ededed;
+  color: #242424;
   transform: scale(1.08);
 }
 

@@ -112,9 +112,13 @@ export default function ProjectsPerspectiveSlider() {
             <small>{formatCounter(total)}</small>
 
             <div className="projects-perspective-controls" aria-label="Project slider controls">
-              <button type="button" onClick={goToPrev} aria-label="Previous project">Prev</button>
+              <button type="button" onClick={goToPrev} aria-label="Previous project">
+                <svg viewBox="0 0 16 16" aria-hidden><path d="m10 3-5 5 5 5" /></svg>
+              </button>
               <span className="projects-perspective-controls-line" aria-hidden />
-              <button type="button" onClick={goToNext} aria-label="Next project">Next</button>
+              <button type="button" onClick={goToNext} aria-label="Next project">
+                <svg viewBox="0 0 16 16" aria-hidden><path d="m6 3 5 5-5 5" /></svg>
+              </button>
             </div>
           </div>
 

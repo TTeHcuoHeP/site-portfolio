@@ -101,12 +101,7 @@ export default function SkillsMarquee() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className={`${styles.section}${isPaused ? ` ${styles.paused}` : ""}`} aria-labelledby="skills-marquee-heading">
-      <header className={styles.heading}>
-        <h2 id="skills-marquee-heading">Skills that move ideas forward.</h2>
-        <p>Strategy, design and technology - connected in one creative practice.</p>
-      </header>
-
+    <section className={`${styles.section}${isPaused ? ` ${styles.paused}` : ""}`} aria-label="Skills">
       <div className={styles.rows}>
         {rows.map((row, rowIndex) => (
           <div className={`${styles.row} ${styles[`row${rowIndex + 1}`]}`} key={rowIndex}>

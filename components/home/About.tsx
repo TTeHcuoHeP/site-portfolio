@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import AboutSkillsGrid from "./AboutSkillsGrid";
 import { externalLinkProps, socialLinks } from "@/lib/social-links";
 
@@ -56,12 +55,9 @@ export default function About() {
         </div>
 
         <div className="about-portrait-panel">
-          <Image
+          <img
             src="/images/about/me_gray.jpg"
             alt="Portrait of Alsim Mamedov"
-            fill
-            priority={false}
-            sizes="(max-width: 1000px) 100vw, 38vw"
             className="about-portrait-image"
           />
 

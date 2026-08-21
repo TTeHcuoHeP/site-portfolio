@@ -1,5 +1,7 @@
 import Hero from "@/components/home/Hero";
 import Expertise from "@/components/home/Expertise";
+import ServicesSection from "@/components/home/ServicesSection";
+import ServicesImpact from "@/components/home/ServicesImpact";
 import SkillsMarquee from "@/components/home/SkillsMarquee";
 import ScrollSequence from "@/components/home/ScrollSequence";
 import About from "@/components/home/About";
@@ -13,6 +15,8 @@ export default function Home() {
     <>
       <Hero />
       <Expertise />
+      <ServicesSection />
+      <ServicesImpact />
       <SkillsMarquee />
       <ScrollSequence />
       <About />

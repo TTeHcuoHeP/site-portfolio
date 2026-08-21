@@ -1,139 +1,111 @@
 "use client";
 
 import Image from "next/image";
-import { useLayoutEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
 
-type Skill = {
+type SkillSlide = {
   number: string;
   title: React.ReactNode;
   text: string;
-  tone: "skills-card-light" | "skills-card-dark";
-  arrow?: boolean;
+  image: string;
 };
 
-const skills: Skill[] = [
+const slides: SkillSlide[] = [
   {
-    number: "01.",
+    number: "01",
     title: <>Creative Vision<br />&amp; Ideation</>,
     text: "The ability to generate fresh concepts, see opportunities, and transform abstract ideas into clear creative directions.",
-    tone: "skills-card-light",
+    image: "/epertise/creative-vision.webp",
   },
   {
-    number: "02.",
+    number: "02",
     title: <>Strategic<br />Thinking</>,
     text: "I connect creativity with business goals, making sure every idea serves a measurable purpose and solves a real problem.",
-    tone: "skills-card-dark",
-    arrow: true,
+    image: "/epertise/strategic.webp",
   },
   {
-    number: "03.",
-    title: <>Team<br />Leadership &amp;<br />Collaboration</>,
+    number: "03",
+    title: <>Team Leadership<br />&amp; Collaboration</>,
     text: "Experience leading designers, copywriters, and marketing teams while keeping workflows efficient and inspiring.",
-    tone: "skills-card-dark",
+    image: "/epertise/team-leadership.webp",
   },
   {
-    number: "04.",
-    title: <>Brand<br />Development &amp;<br />Art Direction</>,
+    number: "04",
+    title: <>Brand Development<br />&amp; Art Direction</>,
     text: "Building visual systems, guiding brand identity, and ensuring consistency across all digital and print touchpoints.",
-    tone: "skills-card-dark",
+    image: "/epertise/brand-development.webp",
   },
   {
-    number: "05.",
-    title: <>Ownership &amp;<br />Accountability</>,
+    number: "05",
+    title: <>Ownership<br />&amp; Accountability</>,
     text: "I take responsibility for the full journey of a project - from briefing to execution, feedback cycles, and final delivery.",
-    tone: "skills-card-light",
+    image: "/epertise/ownership.webp",
+  },
+  {
+    number: "06",
+    title: <>Creative Direction<br />In Practice</>,
+    text: "I bring ideas, people, and production details together into one clear creative direction.",
+    image: "/epertise/creative-direction.webp",
+  },
+  {
+    number: "07",
+    title: <>Systems That<br />Move Brands</>,
+    text: "From first concept to final rollout, every touchpoint is designed to stay distinct and connected.",
+    image: "/epertise/systems.webp",
   },
 ];
 
-function SkillCard({ skill }: { skill: Skill }) {
+function ArrowIcon({ direction }: { direction: "left" | "right" }) {
+  const path = direction === "left" ? "m10 3-5 5 5 5" : "m6 3 5 5-5 5";
+  return <svg viewBox="0 0 16 16" aria-hidden><path d={path} /></svg>;
+}
+
+function SkillCard({ slide }: { slide: SkillSlide }) {
   return (
-    <article className={`about-skill-card ${skill.tone}`} tabIndex={0}>
-      <span className="about-skill-number">{skill.number}</span>
-      <h3>{skill.title}</h3>
-      <div className="about-skill-description">
-        <p>{skill.text}</p>
+    <article className={`about-skills-slide about-skills-slide--${slide.number}`}>
+      <Image key={slide.image} src={slide.image} alt="" fill sizes="(max-width: 760px) 88vw, 31vw" className="about-skills-slide-image" />
+      <div className="about-skills-slide-content">
+        <span className="about-skills-slide-number">{slide.number}</span>
+        <h3>{slide.title}</h3>
+        <p>{slide.text}</p>
       </div>
-      {skill.arrow && (
-        <Image src="/images/icons/orange-arrow.svg" alt="" width={72} height={72} className="about-skill-arrow" aria-hidden />
-      )}
     </article>
   );
 }
 
-function ImageCard({ src, alt }: { src: string; alt: string }) {
-  return (
-    <figure className="about-skill-image" tabIndex={0}>
-      <Image src={src} alt={alt} fill sizes="(max-width: 700px) 82vw, 20vw" className="object-cover grayscale" />
-    </figure>
-  );
-}
-
 export default function AboutSkillsGrid() {
-  const stageRef = useRef<HTMLElement>(null);
-  const viewportRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const nextIndex = (activeIndex + 1) % slides.length;
 
-  useLayoutEffect(() => {
-    const stage = stageRef.current;
-    const viewport = viewportRef.current;
-    const track = trackRef.current;
-    if (!stage || !viewport || !track) return;
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    const scope = gsap.context(() => {
-      const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reducedMotion || window.innerWidth < 768) return;
-
-      const getTravelDistance = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
-      gsap.set(track, { x: 0 });
-
-      const animation = gsap.to(track, {
-        x: () => -getTravelDistance(),
-        ease: "none",
-        paused: true,
-      });
-
-      const horizontalTrigger = ScrollTrigger.create({
-        trigger: stage,
-        animation,
-        start: "top top",
-        end: () => `+=${Math.max(getTravelDistance() * 1.1, viewport.clientWidth)}`,
-        pin: true,
-        pinSpacing: true,
-        scrub: 0.65,
-        anticipatePin: 1,
-        refreshPriority: -1,
-        invalidateOnRefresh: true,
-      });
-
-      const refreshAfterSequence = () => {
-        horizontalTrigger.refresh();
-        ScrollTrigger.refresh();
-      };
-
-      window.addEventListener("scroll-sequence-ready", refreshAfterSequence);
-      ScrollTrigger.refresh();
-
-      return () => window.removeEventListener("scroll-sequence-ready", refreshAfterSequence);
-    }, stage);
-
-    return () => scope.revert();
-  }, []);
+  const move = (direction: "next" | "prev") => {
+    setActiveIndex((current) => (
+      direction === "next"
+        ? (current + 1) % slides.length
+        : (current - 1 + slides.length) % slides.length
+    ));
+  };
 
   return (
-    <section ref={stageRef} className="about-skills-stage" aria-label="Creative competencies">
-      <div ref={viewportRef} className="about-skills-viewport">
-        <div ref={trackRef} className="about-skills-grid">
-          <SkillCard skill={skills[0]} />
-          <SkillCard skill={skills[1]} />
-          <ImageCard src="/images/about/at-the-table.jpg" alt="Alsim seated at a table" />
-          <SkillCard skill={skills[2]} />
-          <SkillCard skill={skills[3]} />
-          <ImageCard src="/images/about/on-chair.jpg" alt="Alsim seated on a chair" />
-          <SkillCard skill={skills[4]} />
+    <section className="about-skills-showcase" aria-labelledby="about-skills-heading">
+      <div className="about-skills-intro">
+        <p className="about-skills-eyebrow">Design, Strategy &amp; Creative Skills</p>
+        <p className="about-skills-intro-text">A practice shaped by strategy, design systems, campaigns, and the people behind them.</p>
+        <h2 id="about-skills-heading">Built through brands, teams,<br />and <strong>creative</strong> work.</h2>
+      </div>
+
+      <div className="about-skills-carousel" aria-live="polite">
+        <div className="about-skills-slides">
+          <SkillCard key={slides[activeIndex].number} slide={slides[activeIndex]} />
+          <SkillCard key={slides[nextIndex].number} slide={slides[nextIndex]} />
+        </div>
+
+        <div className="about-skills-nav">
+          <span>{String(activeIndex + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}</span>
+          <div>
+            <button type="button" onClick={() => move("prev")} aria-label="Previous skill"><ArrowIcon direction="left" /></button>
+            <span aria-hidden />
+            <button type="button" onClick={() => move("next")} aria-label="Next skill"><ArrowIcon direction="right" /></button>
+          </div>
         </div>
       </div>
     </section>

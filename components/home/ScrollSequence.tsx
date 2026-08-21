@@ -29,6 +29,8 @@ export default function ScrollSequence() {
 
     let disposed = false;
     let animationFrameRequest = 0;
+    let hasStarted = false;
+    let observer: IntersectionObserver | null = null;
     let currentFrame = 0;
     let targetFrame = 0;
     let lastRenderedFrame = -1;
@@ -138,11 +140,31 @@ export default function ScrollSequence() {
       window.dispatchEvent(new Event("scroll-sequence-ready"));
     };
 
-    setupSequence();
+    const startSequence = () => {
+      if (hasStarted) return;
+      hasStarted = true;
+      setupSequence();
+    };
+
+    if ("IntersectionObserver" in window) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry.isIntersecting) return;
+          startSequence();
+          observer?.disconnect();
+        },
+        { rootMargin: "1200px 0px" },
+      );
+      observer.observe(section);
+    } else {
+      startSequence();
+    }
+
     window.addEventListener("resize", resizeCanvas);
 
     return () => {
       disposed = true;
+      observer?.disconnect();
       cancelAnimationFrame(animationFrameRequest);
       window.removeEventListener("resize", resizeCanvas);
       gsap.killTweensOf(playhead);

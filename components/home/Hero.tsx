@@ -179,7 +179,7 @@ export default function Hero() {
           loop
           playsInline
           poster="/hero/hero_start.webp"
-          preload="metadata"
+          preload="auto"
         >
           <source src="/hero/hero_looped.webm" type="video/webm" />
         </video>

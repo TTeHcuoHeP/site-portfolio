@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type SkillSlide = {
   number: string;
@@ -33,7 +33,7 @@ const slides: SkillSlide[] = [
     number: "04",
     title: <>Brand Development<br />&amp; Art Direction</>,
     text: "Building visual systems, guiding brand identity, and ensuring consistency across all digital and print touchpoints.",
-    image: "/epertise/brand-development.webp",
+    image: "/epertise/brand-development_2.webp",
   },
   {
     number: "05",
@@ -75,15 +75,27 @@ function SkillCard({ slide }: { slide: SkillSlide }) {
 
 export default function AboutSkillsGrid() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState<"next" | "prev">("next");
+  const [animationKey, setAnimationKey] = useState(0);
   const nextIndex = (activeIndex + 1) % slides.length;
 
-  const move = (direction: "next" | "prev") => {
+  const move = useCallback((nextDirection: "next" | "prev") => {
+    setDirection(nextDirection);
     setActiveIndex((current) => (
-      direction === "next"
+      nextDirection === "next"
         ? (current + 1) % slides.length
         : (current - 1 + slides.length) % slides.length
     ));
-  };
+    setAnimationKey((current) => current + 1);
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => move("next"), 4000);
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, [move]);
 
   return (
     <section className="about-skills-showcase" aria-labelledby="about-skills-heading">
@@ -94,9 +106,9 @@ export default function AboutSkillsGrid() {
       </div>
 
       <div className="about-skills-carousel" aria-live="polite">
-        <div className="about-skills-slides">
-          <SkillCard key={slides[activeIndex].number} slide={slides[activeIndex]} />
-          <SkillCard key={slides[nextIndex].number} slide={slides[nextIndex]} />
+        <div className={`about-skills-slides about-skills-slides--${direction}`}>
+          <SkillCard key={`${slides[activeIndex].number}-${animationKey}`} slide={slides[activeIndex]} />
+          <SkillCard key={`${slides[nextIndex].number}-${animationKey}`} slide={slides[nextIndex]} />
         </div>
 
         <div className="about-skills-nav">

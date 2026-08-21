@@ -270,8 +270,8 @@ body:has(.project-detail-hero) .reference-header .reference-nav .nav-item:focus-
 .services-card--beige .services-image-overlay, .services-card--lavender .services-image-overlay { background: transparent; }
 .services-content { position: relative; display: flex; height: 100%; flex-direction: column; align-items: flex-start; padding: clamp(27px, 2.4vw, 44px); color: #ededed; text-align: left; }
 .services-card--beige .services-content, .services-card--lavender .services-content { color: #242424; }
-.services-card--web-design .services-content, .services-card--motion-video .services-content { color: #f8f3f3; }
-.services-card--art-direction .services-content, .services-card--packaging-design .services-content { color: #1c1c1c; }
+.services-card--web-design .services-content, .services-card--motion-video .services-content { color: #faf7f7; }
+.services-card--art-direction .services-content, .services-card--packaging-design .services-content { color: #1b1a1a; }
 .services-number { font-size: clamp(22px, 2.3vw, 40px); font-weight: 300; letter-spacing: -.05em; line-height: .9; }
 .services-title { max-width: 80%; margin-top: clamp(22px, 2.3vw, 38px); font-size: clamp(38px, 4vw, 70px); font-weight: 700; letter-spacing: -.05em; line-height: .87; text-transform: uppercase; }
 .services-title > span { display: block; }
@@ -468,7 +468,7 @@ body:has(.project-detail-hero) .reference-header .reference-nav .nav-item:focus-
 .about-skills-intro-text { order: 1; max-width: 31ch; margin: 28px 0 0; color: rgba(237,237,237,.66); font-size: clamp(16px, 1.2vw, 21px); font-weight: 300; line-height: 1.35; }
 .about-skills-carousel { min-width: 0; padding-top: 2px; }
 .about-skills-slides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: clamp(16px, 1.65vw, 30px); }
-.about-skills-slide { position: relative; min-height: clamp(430px, 34vw, 550px); overflow: hidden; border-radius: clamp(22px, 2vw, 34px); background: #242424; color: #ededed; box-shadow: 0 18px 42px rgba(36,36,36,.13); animation: about-skills-card-in 560ms cubic-bezier(.22,1,.36,1) both; }
+.about-skills-slide { position: relative; min-height: clamp(430px, 34vw, 550px); overflow: hidden; border-radius: clamp(22px, 2vw, 34px); background: #242424; color: #ededed; box-shadow: 0 18px 42px rgba(36,36,36,.13); }
 .about-skills-slide:first-child { min-height: clamp(520px, 41vw, 640px); margin-bottom: clamp(-88px, -6vw, -44px); }
 .about-skills-slide-image { object-fit: cover; object-position: center; }
 .about-skills-slide-content { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; min-height: inherit; padding: clamp(22px, 2.1vw, 38px); }
@@ -478,6 +478,7 @@ body:has(.project-detail-hero) .reference-header .reference-nav .nav-item:focus-
 .about-skills-slide--01, .about-skills-slide--03, .about-skills-slide--04, .about-skills-slide--05, .about-skills-slide--06 { color: #2b2b2b; }
 .about-skills-slide--01 .about-skills-slide-number, .about-skills-slide--03 .about-skills-slide-number, .about-skills-slide--04 .about-skills-slide-number, .about-skills-slide--05 .about-skills-slide-number, .about-skills-slide--06 .about-skills-slide-number, .about-skills-slide--01 h3, .about-skills-slide--03 h3, .about-skills-slide--04 h3, .about-skills-slide--05 h3, .about-skills-slide--06 h3, .about-skills-slide--01 p, .about-skills-slide--03 p, .about-skills-slide--04 p, .about-skills-slide--05 p, .about-skills-slide--06 p { color: #2b2b2b; }
 .about-skills-nav { display: flex; align-items: center; justify-content: center; width: calc(50% - clamp(8px, .83vw, 15px)); margin-top: 24px; margin-left: calc(50% + clamp(8px, .83vw, 15px)); color: #ededed; }
+.about-skills-slide--04, .about-skills-slide--04 .about-skills-slide-number, .about-skills-slide--04 h3, .about-skills-slide--04 p { color: #ededed; }
 .about-skills-nav > span { display: none; }
 .about-skills-nav > div { display: flex; align-items: center; gap: 14px; }
 .about-skills-nav button { display: grid; width: 44px; height: 44px; padding: 0; place-items: center; border: 1px solid #ededed; border-radius: 50%; background: #ededed; color: #242424; transition: background-color 260ms ease, color 260ms ease, transform 300ms cubic-bezier(.22,1,.36,1); }
@@ -485,6 +486,12 @@ body:has(.project-detail-hero) .reference-header .reference-nav .nav-item:focus-
 .about-skills-nav button:hover, .about-skills-nav button:focus-visible { background: #2b2b2b; color: #ededed; outline: none; transform: translateY(-2px) scale(1.05); }
 .about-skills-nav > div > span { width: 42px; height: 1px; background: rgba(237,237,237,.48); }
 @keyframes about-skills-card-in { from { opacity: 0; transform: translateY(22px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes about-skills-card-in-from-right { from { opacity: 0; transform: translateX(72px) scale(.985); } to { opacity: 1; transform: translateX(0) scale(1); } }
+@keyframes about-skills-card-in-from-left { from { opacity: 0; transform: translateX(-72px) scale(.985); } to { opacity: 1; transform: translateX(0) scale(1); } }
+.about-skills-slides--next .about-skills-slide:first-child { animation: about-skills-card-in-from-right 420ms cubic-bezier(.22,1,.36,1) both; }
+.about-skills-slides--next .about-skills-slide:nth-child(2) { animation: about-skills-card-in-from-right 420ms cubic-bezier(.22,1,.36,1) 80ms both; }
+.about-skills-slides--prev .about-skills-slide:first-child { animation: about-skills-card-in-from-left 420ms cubic-bezier(.22,1,.36,1) both; }
+.about-skills-slides--prev .about-skills-slide:nth-child(2) { animation: about-skills-card-in-from-left 420ms cubic-bezier(.22,1,.36,1) 80ms both; }
 
 @media (max-width: 980px) { .about-section > .about-skills-showcase { grid-template-columns: 1fr; gap: 46px; min-height: 0; } .about-skills-intro { min-height: 0; max-width: 700px; } .about-skills-eyebrow { margin-top: 62px; } .about-skills-nav { margin-left: auto; } }
 @media (max-width: 620px) { .about-section > .about-skills-showcase { padding: 80px 20px; } .about-skills-intro { padding-top: 0; } .about-skills-intro-text { margin-bottom: 42px; } .about-skills-slides { grid-template-columns: 1fr; } .about-skills-slides > :nth-child(2) { display: none; } .about-skills-slide, .about-skills-slide:first-child { min-height: 500px; margin-bottom: 0; } }

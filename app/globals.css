@@ -316,7 +316,7 @@ body:has(.project-detail-hero) .reference-header .reference-nav .nav-item:focus-
 }
 
 /* Services impact */
-.services-impact { padding: clamp(4px, .55vw, 9px) clamp(20px, 3vw, 52px) clamp(92px, 9vw, 150px); background: #fbfbfb; color: #242424; }
+.services-impact { padding: clamp(4px, .55vw, 9px) clamp(20px, 3vw, 52px) clamp(92px, 9vw, 150px); background: #f7f5f5; color: #242424; }
 .services-section + .services-impact { position: relative; z-index: 1; margin-top: clamp(-70px, -0vw, -25px); }
 .services-impact-summary { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(16px, 2vw, 34px); margin-bottom: clamp(42px, 5vw, 78px); color: #242424; font-size: clamp(16px, 1.25vw, 22px); font-weight: 300; }
 .services-impact-summary > svg { width: clamp(22px, 1.85vw, 31px); height: auto; fill: none; stroke: currentColor; stroke-width: 2; }

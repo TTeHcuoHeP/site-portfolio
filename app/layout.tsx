@@ -9,6 +9,7 @@ import "@/styles/preloader.css";
 import "@/styles/projects-scroll-slider.css";
 import "@/styles/projects-perspective-slider.css";
 import "@/styles/career-path.css";
+import "@/styles/career-track.css";
 import "@/styles/brands-section.css";
 import "@/styles/footer.css";
 import "@/styles/projects-pages.css";

@@ -3,6 +3,7 @@ export const socialLinks = {
   instagram: "https://www.instagram.com/why_not_designer?igsh=MTB5bXdnb3VpbGVhdQ%3D%3D&utm_source=qr",
   telegram: "https://t.me/whynotdesigner",
   behance: "https://www.behance.net/artpromenade",
+  youtube: "https://youtube.com/@poydemposmotrim?si=LdXvU_xBDEaBBfTe",
 } as const;
 
 export const externalLinkProps = {
